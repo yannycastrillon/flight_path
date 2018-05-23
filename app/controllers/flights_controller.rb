@@ -34,14 +34,23 @@ class FlightsController < ApplicationController
   end
 
   def calculate_path
-    puts params[:flight_path]
+    # puts params[:flight_path]
 
+    @paths = format_path(params[:flight_path])
+    # calculate_source_destination(@paths)
 
-
-    render json: { "client_path": params[:flight_path] }
+    render json: { "client_path": @paths }
   end
 
   private
+
+    # formats the current string to an array of tuples
+    def format_path(str)
+      first_format = str[1..str.length - 2].split('|') # => [ "['ATL', 'EWR'] ", " ['SFO', 'ATL']" ]
+      second_format = first_format.map { |e| e[1..e.length - 2] } # => ["'ATL', 'EWR'", "'SFO', 'ATL'"]
+      second_format.map { |e| e.strip.split(',') } # [["'ATL'", " 'EWR'"], ["'SFO'", " 'ATL'"]]
+    end
+
     def set_flight
       @flight = Flight.find(params[:id])
     end
