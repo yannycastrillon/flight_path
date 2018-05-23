@@ -44,7 +44,7 @@ class FlightsController < ApplicationController
 
   private
 
-    # formats the current string to an array of tuples
+    # format the input string into an arra data structure.
     def format_path(str)
       first_format = str[1..str.length - 2].split('|') # => [ "['ATL', 'EWR'] ", " ['SFO', 'ATL']" ]
       second_format = first_format.map { |e| e[1..e.length - 2] } # => ["'ATL', 'EWR'", "'SFO', 'ATL'"]
