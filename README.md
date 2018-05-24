@@ -35,3 +35,7 @@ POST localhost:3000/flight_path
 * Use **Postman** to simulate a post request
    * 1) Each flight pathway pairs must be separate by `|` and with not `space` between each pair.
     * `[['IND', 'EWR']|['SFO', 'ATL']|['GSO', 'IND']|['ATL', 'GSO']]`
+## What's next
+* - Code refactoring.
+* - Add testing features following up TDD using Rspec.
+* - Clean up code.
