@@ -43,7 +43,7 @@ class FlightsController < ApplicationController
   private
 
     def calculate_source_destination(paths)
-      # [["'ATL'", " 'EWR'"], ["'SFO'", " 'ATL'"]]
+      # [["'ATL'", " 'EWR'"]|["'SFO'", " 'ATL'"]]
       source_destination = Hash.new
       # Build hash structure where 'sources' and 'destination'
       paths.each do |tuple|
